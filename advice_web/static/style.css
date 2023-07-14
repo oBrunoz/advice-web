@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;1,500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #C1D0B5;
+}
+
+header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 9%;
+    background: transparent;
+    text-transform: uppercase;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: red;
+}
+
+.nav__list {
+    display: flex;
+}
+
+.nav__list a {
+    color: white;
+    margin-left: 60px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all .2s ease-in-out;
+    text-decoration: none;
+}
+
+.nav__list a:hover {
+    border-bottom: 2px solid white;
+}
+
+.menu {
+    color: white;
+    font-size: 35px;
+    z-index: 1001;
+    cursor: pointer;
+    display: none;
+}
+
+.main {
+    border-top: 2px solid black;
+    position: relative;
+    height: 100%;
+    top: 11%;
+}
+
+.main__advice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 50%;
+    height: 30%;
+    background-color: #99A98F;
+    border-bottom: 1.5px solid black;
+}
+
+.main__advice > p {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 5px;
+}
+
+.main__advice > .advice__message {
+    height: 88%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__advice > .advice__message > p{
+    font-family: 'Josefin Sans', 'Ubuntu';
+    font-weight: 600;
+    font-size: 20px;
+}
