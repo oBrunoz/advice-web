@@ -40,10 +40,11 @@ header {
     font-weight: 700;
     color: white;
     text-decoration: none;
+    transition: all 1s ease;
 }
 
 .logo:hover {
-    color: red;
+    color: #554994;
 }
 
 .nav__list {
@@ -55,12 +56,13 @@ header {
     margin-left: 60px;
     font-size: 15px;
     font-weight: 600;
-    transition: all .2s ease-in-out;
+    transition: all 1s ease-in-out;
     text-decoration: none;
 }
 
 .nav__list a:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 1.5px solid white;
+    color: #554994;
 }
 
 .menu {
@@ -85,15 +87,17 @@ header {
     max-height: 50%;
     height: 30%;
     background-color: #99A98F;
-    border-bottom: 1.5px solid black;
+    border-bottom: 1px solid black;
 }
 
 .main__advice > p {
     font-family: 'Poppins';
-    font-weight: 400;
+    font-weight: bold;
     font-size: 20px;
     padding: 20px;
     margin-bottom: 5px;
+    color: white;
+    text-shadow: 28px 28px 72px #474646, -28px -28px 72px #ffffff;
 }
 
 .main__advice > .advice__message {
