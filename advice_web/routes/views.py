@@ -16,3 +16,7 @@ def index():
     advice = response.json()['slip']['advice']
 
     return render_template('index.html', advice=advice)
+
+@app.route('/favoritos')
+def fav_advice():
+    return render_template('favoritos.html')

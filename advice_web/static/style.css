@@ -113,3 +113,103 @@ header {
     font-weight: 600;
     font-size: 20px;
 }
+
+.main__advice .advice__btn {
+    position: relative;
+    left: 30px;
+    margin: 12px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.main__advice .advice__btn form input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.main__advice .advice__btn form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    gap: 10px;
+    user-select: none;
+}
+
+.main__advice .advice__btn form input + i{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: fit-content;
+    width: fit-content;
+    font-size: 25px;
+    transition: all 0.3s;
+    color: #666;
+}
+
+.main__advice .advice__btn form input + i:hover{
+    transform: scale(1.2);
+    color: #ffeb49;
+}
+
+.main__advice .advice__btn form > input:checked + i {
+    color: #ffeb49;
+}
+
+.main__advice .advice__btn form button {
+    color: white;
+    background-color: #222;
+    font-weight: 500;
+    border-radius: 2px;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+}
+
+.main__advice .advice__btn form button:hover {
+    background-color: #333;
+}
+
+.main__advice .advice__btn form button .btn__icon i {
+    display: inline;
+    width: 1.3rem;
+    height: 1.3rem;
+    color: red;
+}
+
+.main__advice .advice__btn form button:focus .btn__icon i {
+    animation: spin 0.5s linear;
+}
+
+section .advice__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .advice__content .content {
+    width: 70vw;
+    height: 50vh;
+    margin-top: 17px;
+    background-color: #99A98F;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
