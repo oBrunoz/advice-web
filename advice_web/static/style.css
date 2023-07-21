@@ -123,11 +123,7 @@ header {
 }
 
 .main__advice .advice__btn form input {
-    position: absolute;
-    cursor: pointer;
-    opacity: 0;
-    height: 0;
-    width: 0;
+    display: none;
 }
 
 .main__advice .advice__btn form {
@@ -139,7 +135,7 @@ header {
     user-select: none;
 }
 
-.main__advice .advice__btn form input + i{
+.main__advice .advice__btn form input + label i{
     position: relative;
     top: 0;
     left: 0;
@@ -150,23 +146,24 @@ header {
     color: #666;
 }
 
-.main__advice .advice__btn form input + i:hover{
+.main__advice .advice__btn form input + label i:hover{
+    cursor: pointer;
     transform: scale(1.2);
+    color: #ffea4988;
+}
+
+.main__advice .advice__btn form > input:checked + label i{
     color: #ffeb49;
 }
 
-.main__advice .advice__btn form > input:checked + i {
-    color: #ffeb49;
-}
-
-.main__advice .advice__btn form button {
+.main__advice .advice__btn form a {
     color: white;
-    background-color: #222;
+    background-color: transparent;
     font-weight: 500;
     border-radius: 2px;
-    font-size: 1rem;
-    line-height: 2rem;
-    padding-left: 5px;
+    font-size: 21px;
+    line-height: 1.5rem;
+    padding-left: 2px;
     padding-right: 5px;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -174,21 +171,26 @@ header {
     display: inline-flex;
     align-items: center;
     border: none;
+    transition: all 0.3s;
 }
 
-.main__advice .advice__btn form button:hover {
-    background-color: #333;
+.main__advice .advice__btn form a .btn__icon i{
+    transition: all 0.3s;
 }
 
-.main__advice .advice__btn form button .btn__icon i {
-    display: inline;
+.main__advice .advice__btn form a:hover .btn__icon i{
+    transform: scale(1.2);
+    color: whitesmoke;
+}
+
+.main__advice .advice__btn form a .btn__icon i {
     width: 1.3rem;
     height: 1.3rem;
-    color: red;
+    color: #666;
 }
 
-.main__advice .advice__btn form button:focus .btn__icon i {
-    animation: spin 0.5s linear;
+.main__advice .advice__btn form a:focus span{
+    animation: spin 1.2s linear;
 }
 
 section .advice__content {

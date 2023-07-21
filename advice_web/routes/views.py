@@ -4,6 +4,18 @@ from random import randint
 import requests
 import ssl
 
+@app.route('/get_new_advice', methods=['POST'])
+def new_advice():
+
+    for _ in range(1):
+        random_value = randint(1, 224)
+
+    response = requests.get(f'https://api.adviceslip.com/advice/{random_value}')
+
+    advice = response.json()['slip']['advice']
+
+    return jsonify({'advice': advice})
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
