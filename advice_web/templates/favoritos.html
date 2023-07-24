@@ -2,8 +2,17 @@
 {% block title %}{{ super() }} - Favoritos{% endblock %}
 
 {% block body %}
-    
-<h1>FAVORITOS</h1>
-
 {% endblock body %}
 
+{% block fav %}
+    <h1>FAVORITOS</h1>
+    <div class="mt-3">
+        {% if advice %}
+            {% for fav in advice %}
+            <p>{{fav['slip']['id']}} - {{fav['slip']['advice']}}</p>
+            {% endfor %}
+        {% else %}
+            <p>Não existem frases favoritadas!</p>
+        {% endif %}
+    </div>
+{% endblock fav %}

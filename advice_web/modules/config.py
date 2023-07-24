@@ -1,0 +1,1 @@
+responseAPI_ID = f'https://api.adviceslip.com/advice/'

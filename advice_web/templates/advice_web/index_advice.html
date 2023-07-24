@@ -1,0 +1,15 @@
+<section class="main">
+    {% include '__msg.html'   %}
+        <div class="main__advice">
+            <p id="advice__response">{{advice['slip']['advice']}}</p>
+            <div class="advice__btn">
+                <form method="POST" action="{{ url_for('favoriteAdvice', id_advice=advice['slip']['id']) }}">
+                    <input type="checkbox" class="btn__fav" name="checkFav" id="btn__fav" onchange="this.form.submit()"/><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label>
+                    <a href="#" onclick="refreshDiv()" name="refresh" class="refresh__btn"><span class="btn__icon"><i class="fa fa-refresh" aria-hidden="true"></i></span></a>
+                </form>
+            </div>
+        </div>
+        <div class="advice__content">
+            <div class="content"><h1>TESTE</h1></div>
+        </div>
+</section>

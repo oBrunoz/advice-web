@@ -1,5 +1,4 @@
 function refreshDiv() {
-    
     $.ajax({
         url: '/get_new_advice',
         type: 'POST',

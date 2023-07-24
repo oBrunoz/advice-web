@@ -10,15 +10,20 @@
     <title>Just some advices{% block title %} - Advice{% endblock %}</title>
 </head>
 <body>
-    {% include 'navbar.html' %}
+    <nav>
 
+        {% include 'navbar.html' %}
+    </nav>
+    
+    {% block body %}  
     <section class="main">
+        {% include '__msg.html'   %}
             <div class="main__advice">
-                <p id="advice__response">{{advice}}</p>
+                <p id="advice__response">{{advice['slip']['advice']}}</p>
                 <div class="advice__btn">
-                    <form action="">
-                        <input type="checkbox" class="btn__fav" id="btn__fav"/><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label>
-                        <a href="#" onclick="refreshDiv()" name="refresh" class="refresh__btn"><span class="btn__icon"><i class="fa fa-refresh" aria-hidden="true"></i></span></a>
+                    <form method="POST" action="{{ url_for('favoriteAdvice', id_advice=advice['slip']['id']) }}">
+                        <input type="checkbox" class="btn__fav" name="checkFav" id="btn__fav" onchange="this.form.submit()" {% if advice['slip']['id'] in session['fav_advice_ids'] %}checked{% endif %} /><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label>
+                        <a href="" onclick="refreshDiv()" name="refresh" class="refresh__btn"><span class="btn__icon"><i class="fa fa-refresh" aria-hidden="true"></i></span></a>
                     </form>
                 </div>
             </div>
@@ -26,9 +31,13 @@
                 <div class="content"><h1>TESTE</h1></div>
             </div>
     </section>
-
-    {% block body %}  
     {% endblock body %}
+    
+    <div class="container">
+        {% block fav %}
+        {% endblock %}
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
