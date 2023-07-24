@@ -1,12 +1,12 @@
 from flask import jsonify, request, render_template, flash, redirect, session
 from advice_web import app
-from advice_web.modules.config import responseAPI_ID
+from advice_web.modules.config import responseAPI_ID, responseAPI_SEARCH
 from advice_web.tools.functions import getNewAdvice, getAdviceList
 from random import randint
 import requests
 import ssl
 
-advice = getNewAdvice(1, True)
+advice = getNewAdvice()
 
 @app.route('/get_new_advice', methods=['POST'])
 def new_advice():
@@ -38,6 +38,12 @@ def favoriteAdvice(id_advice):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    for _ in range(1):
+        random_value = randint(1, 224)
+
+    response = requests.get(f'{responseAPI_ID}{random_value}')
+    advice = response.json()
+
     return render_template('index.html', advice=advice)
 
 @app.route('/favoritos')
@@ -50,3 +56,20 @@ def fav_advice():
     advices = getAdviceList(session['fav_advice_ids'])
 
     return render_template('favoritos.html', advice=advices)
+
+@app.route('/pesquisar', methods=['GET'])
+def search_advice():
+    inputSearch = request.args.get('search', type=str).strip()
+
+    if inputSearch != None:
+        print(inputSearch)
+
+        response = requests.get(f'{responseAPI_SEARCH}{inputSearch}')
+
+        if response.ok:
+            search = response.json()
+            print('NUMERO DE VALORES: ', search['slips'])
+    else:
+        print('Valor de input veio como None')
+
+    return render_template('pesquisar.html', response_search=search)

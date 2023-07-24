@@ -3,9 +3,13 @@ function refreshDiv() {
         url: '/get_new_advice',
         type: 'POST',
         success: function(data) {
+            try {
             // Atualize o conteúdo da div com o novo conteúdo do servidor
-            console.log('Foi')
+            console.log(data.advice)
             $('#advice__response').html(data.advice);
+            } catch(err) {
+                console.log(err)
+            }
         },
         error: function(xhr, status, error) {
             console.error(error);

@@ -23,7 +23,7 @@
                 <div class="advice__btn">
                     <form method="POST" action="{{ url_for('favoriteAdvice', id_advice=advice['slip']['id']) }}">
                         <input type="checkbox" class="btn__fav" name="checkFav" id="btn__fav" onchange="this.form.submit()" {% if advice['slip']['id'] in session['fav_advice_ids'] %}checked{% endif %} /><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label>
-                        <a href="" onclick="refreshDiv()" name="refresh" class="refresh__btn"><span class="btn__icon"><i class="fa fa-refresh" aria-hidden="true"></i></span></a>
+                        <a href="#" onclick="refreshDiv()" name="refresh" class="refresh__btn"><span class="btn__icon"><i class="fa fa-refresh" aria-hidden="true"></i></span></a>
                     </form>
                 </div>
             </div>
@@ -35,6 +35,11 @@
     
     <div class="container">
         {% block fav %}
+        {% endblock %}
+    </div>
+
+    <div class="container">
+        {% block search %}
         {% endblock %}
     </div>
 

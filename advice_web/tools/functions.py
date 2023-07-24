@@ -3,7 +3,7 @@ from advice_web.modules.config import responseAPI_ID
 import requests
 from random import randint
 
-def getNewAdvice(value:int=1, returnState:bool=False):
+def getNewAdvice(value:int=1):
     for _ in range(value):
         random_value = randint(1, 224)
 
@@ -11,12 +11,9 @@ def getNewAdvice(value:int=1, returnState:bool=False):
 
     response = requests.get(f'{responseAPI_ID}{random_value}')
 
-    if response.ok and returnState == False:
+    if response.ok:
         advice = response.json()['slip']['advice']
         return {'advice': advice}
-    if response.ok and returnState == True:
-        advice = response.json()
-        return advice
     else:
         return {'advice': 'Error: Unable to retrieve advice.'}
 
