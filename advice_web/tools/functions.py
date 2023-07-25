@@ -29,3 +29,16 @@ def getAdviceList(ids:list):
             advices.append(advice)
 
     return advices
+
+def getAllAdvices():
+
+    all_results = []
+
+    for i in range(1, 15):
+        response = requests.get(f'{responseAPI_ID}{i}')
+        if response.ok:
+            print('ok')
+            advice_data = response.json()
+            all_results.append(advice_data)
+
+    return all_results

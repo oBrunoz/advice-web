@@ -1,7 +1,7 @@
 from flask import jsonify, request, render_template, flash, redirect, session
 from advice_web import app
 from advice_web.modules.config import responseAPI_ID, responseAPI_SEARCH
-from advice_web.tools.functions import getNewAdvice, getAdviceList
+from advice_web.tools.functions import getNewAdvice, getAdviceList, getAllAdvices
 from random import randint
 import requests
 import ssl
@@ -57,19 +57,29 @@ def fav_advice():
 
     return render_template('favoritos.html', advice=advices)
 
-@app.route('/pesquisar', methods=['GET'])
+@app.route('/search', methods=['GET'])
 def search_advice():
-    inputSearch = request.args.get('search', type=str).strip()
+    inputSearch = request.args.get('tag', type=str)
 
-    if inputSearch != None:
+    if inputSearch == None:
+        all_results = getAllAdvices()
+
+        return render_template('pesquisar.html', getAll=all_results)
+    else:
         print(inputSearch)
-
         response = requests.get(f'{responseAPI_SEARCH}{inputSearch}')
 
         if response.ok:
-            search = response.json()
-            print('NUMERO DE VALORES: ', search['slips'])
-    else:
-        print('Valor de input veio como None')
+            try:
+                search = response.json()
+                total_results = search.get('total_results')
+                if total_results is None:
+                    flash(f'Not found any advice with \"{search}\", please try another.', 'error')
+            except ValueError:
+                flash('Invalid API response format.', 'error')
+        else:
+            flash(f'API request failed with status code: {response.status_code}.', 'error')
+            search = None
+
 
     return render_template('pesquisar.html', response_search=search)
