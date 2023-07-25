@@ -34,7 +34,7 @@ def getAllAdvices():
 
     all_results = []
 
-    for i in range(1, 15):
+    for i in range(1, 6):
         response = requests.get(f'{responseAPI_ID}{i}')
         if response.ok:
             print('ok')

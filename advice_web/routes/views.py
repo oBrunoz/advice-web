@@ -42,7 +42,11 @@ def index():
         random_value = randint(1, 224)
 
     response = requests.get(f'{responseAPI_ID}{random_value}')
-    advice = response.json()
+    if response.ok:
+        try:
+            advice = response.json()
+        except ValueError:
+            flash('Invalid API response format.', 'error')
 
     return render_template('index.html', advice=advice)
 
@@ -50,8 +54,6 @@ def index():
 def fav_advice():
     if 'fav_advice_ids' not in session:
         return render_template('favoritos.html')
-    
-    sessionValue = session['fav_advice_ids']
 
     advices = getAdviceList(session['fav_advice_ids'])
 
@@ -66,7 +68,6 @@ def search_advice():
 
         return render_template('pesquisar.html', getAll=all_results)
     else:
-        print(inputSearch)
         response = requests.get(f'{responseAPI_SEARCH}{inputSearch}')
 
         if response.ok:
@@ -74,7 +75,8 @@ def search_advice():
                 search = response.json()
                 total_results = search.get('total_results')
                 if total_results is None:
-                    flash(f'Not found any advice with \"{search}\", please try another.', 'error')
+                    print('Not found')
+                    flash(f'Not found any advice with \"{inputSearch}\", please try another.', 'error')
             except ValueError:
                 flash('Invalid API response format.', 'error')
         else:

@@ -16,3 +16,11 @@ function refreshDiv() {
         }
     });
 }
+
+$(document).ready(function() {
+    // Adiciona o evento de clique ao ícone de fechar
+    $(".error__close, .success__close").click(function() {
+        // Esconde o elemento .error quando o ícone de fechar é clicado
+        $("#message-all").hide();
+    });
+});
