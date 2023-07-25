@@ -5,11 +5,27 @@
 {% endblock body %}
 
 {% block fav %}
-    <h1>FAVORITOS</h1>
-    <div class="mt-3">
+<div class="container__fav mt-3">
+        <div class="title__fav">
+            <h1>your favorite advices</h1>
+        </div>
         {% if advice %}
             {% for fav in advice %}
-            <p>{{fav['slip']['id']}} - {{fav['slip']['advice']}}</p>
+            <div class="card card__fav">
+                <div class="card-details">
+                    <p class="text-title">Advice {{ fav['slip']['id'] }}</p>
+                    <div class="background__advice_msg">
+                        <p class="text-body">{{ fav['slip']['advice'] }}</p>
+                    </div>
+                </div>
+                <div class="buttons__fav">
+                    <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{fav['id']}}"><input type="checkbox" class=""><label for="btn__fav"><i class="fa fa-heart-o" aria-hidden="true"></i></label></button>
+                    <form action="" method="post">
+                        <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{fav['id']}}"><input type="checkbox" class=""><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label></button>
+                    </form>
+                    <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{fav['id']}}"><input type="checkbox" class=""><i class="fa fa-info" aria-hidden="true"></i></button>
+                </div>
+            </div>
             {% endfor %}
         {% else %}
             <p>Não existem frases favoritadas!</p>

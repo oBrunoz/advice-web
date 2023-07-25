@@ -33,6 +33,7 @@ header {
     padding: 25px 7%;
     background: transparent;
     text-transform: uppercase;
+    margin-bottom: 30px;
 }
 
 /* MSG */
@@ -457,11 +458,13 @@ section .advice__content .content {
    
    /*Text*/
    .text-title {
+    position: relative;
     display: flex;
     justify-content: center;
     text-transform: uppercase;
     font-size: 1.5em;
     font-weight: bold;
+    margin-bottom: 0.5rem;
    }
    
    /*Hover*/
@@ -553,6 +556,54 @@ section .advice__content .content {
 
 /* END MODAL SEARCH */
 
+/* FAVORITOS */
+
+.container__fav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 47px;
+  gap: 40px;
+}
+
+.title__fav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: transparent;
+  margin-bottom: 20px;
+}
+
+.title__fav > h1{
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card-button_fav {
+  position: static;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 3rem;
+  padding: 8px 17px;
+  left: 38%;
+}
+
+.buttons__fav {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 20%;
+  bottom: 0;
+  gap: 13px;
+}
+
+.buttons__fav > button > input, .buttons__fav > form > button > input {
+  display: none;
+}
+
+
+/* END FAVORITOS */
 
 @keyframes spin {
     from {
