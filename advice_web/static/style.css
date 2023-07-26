@@ -33,7 +33,7 @@ header {
     padding: 25px 7%;
     background: transparent;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 /* MSG */
@@ -48,26 +48,26 @@ header {
     background: #FCE8DB;
     border-radius: 8px;
     box-shadow: 0px 0px 5px -3px #111;
-  }
-  
-  .error__icon {
+}
+
+.error__icon {
     width: 20px;
     height: 20px;
     transform: translateY(-2px);
     margin-right: 10px;
-  }
-  
-  .error__icon path {
+}
+
+.error__icon path {
     fill: #EF665B;
-  }
-  
-  .error__title {
+}
+
+.error__title {
     font-weight: 500;
     font-size: 14px;
     color: #71192F;
-  }
-  
-  .error__close {
+}
+
+.error__close {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,13 +75,13 @@ header {
     height: 20px;
     cursor: pointer;
     margin-left: 30px;
-  }
-  
-  .error__close path {
-    fill: #71192F;
-  }
+}
 
-  .success {
+.error__close path {
+    fill: #71192F;
+}
+
+.success {
     width: fit-content;
     padding: 12px;
     display: flex;
@@ -91,26 +91,26 @@ header {
     background: #EDFBD8;
     border-radius: 8px;
     box-shadow: 0px 0px 5px -3px #111;
-  }
-  
-  .success__icon {
+}
+
+.success__icon {
     width: 20px;
     height: 20px;
     transform: translateY(-2px);
     margin-right: 10px;
-  }
-  
-  .success__icon path {
+}
+
+.success__icon path {
     fill: #84D65A;
-  }
-  
-  .success__title {
+}
+
+.success__title {
     font-weight: 500;
     font-size: 14px;
     color: #2B641E;
-  }
-  
-  .success__close {
+}
+
+.success__close {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,11 +118,54 @@ header {
     height: 20px;
     cursor: pointer;
     margin-left: 30px;
-  }
-  
-  .success__close path {
+}
+
+.success__close path {
     fill: #2B641E;
-  }
+}
+
+.info {
+    width: fit-content;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background: #D7F1FD;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+}
+
+.info__icon {
+    width: 20px;
+    height: 20px;
+    transform: translateY(-2px);
+    margin-right: 10px;
+}
+
+.info__icon path {
+    fill: #509AF8;
+}
+
+.info__title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #0C2A75;
+}
+
+.info__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.info__close path {
+    fill: #0C2A75;
+}
 
 /* END MSG */
 
@@ -600,6 +643,112 @@ section .advice__content .content {
 
 .buttons__fav > button > input, .buttons__fav > form > button > input {
   display: none;
+}
+
+/* ELSE */
+
+.no__fav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: transparent;
+    margin-bottom: auto;
+}
+
+.cards__recomendations {
+    display: flex;
+    gap: 40px;
+}
+
+.card__recomendation {
+    width: 100%;
+    max-width: 300px;
+    min-width: 200px;
+    height: 250px;
+    background-color: #292929;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
+    border: 2px solid rgba(7, 7, 7, 0.12);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+a.card__recomendation {
+    text-decoration: none;
+}
+  
+.card__recomendation > .icon {
+    margin: 0 auto;
+    width: 100%;
+    height: 80px;
+    max-width: 80px;
+    background: linear-gradient(90deg, #7eaaff 0%, #ff48fb 40%, rgba(0, 0, 0, 0.28) 60%);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.8s ease;
+    background-position: 0px;
+    background-size: 200px;
+}
+  
+.card__recomendation > .icon svg {
+    fill: white;
+    width: 38px;
+    height: 38px;
+}
+  
+.card__recomendation > .title {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+  
+.card__recomendation > .text {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 2px;
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.3s ease;
+}
+  
+.card__recomendation:hover {
+    height: 270px;
+}
+  
+.card__recomendation:hover .text {
+    transition: all 0.3s ease;
+    opacity: 1;
+    max-height: 40px;
+}
+  
+.card__recomendation:hover .icon {
+    background-position: -120px;
+    transition: all 0.3s ease;
+}
+  
+.card__recomendation:hover .icon > svg > path {
+    fill: url('#gradientColor');
+    transition: all 0.3s ease;
 }
 
 

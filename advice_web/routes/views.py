@@ -32,9 +32,9 @@ def favoriteAdvice(id_advice):
                 session['fav_advice_ids'].remove(id_advice)
                 print(session['fav_advice_ids'])
 
-            flash('Advice removed from favorite list', 'error')
+            flash('Advice removed from favorite list', 'success')
 
-    return redirect('/')
+    return redirect(request.referrer or '/')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -53,9 +53,12 @@ def index():
 @app.route('/favoritos')
 def fav_advice():
     if 'fav_advice_ids' not in session:
+
         return render_template('favoritos.html')
 
     advices = getAdviceList(session['fav_advice_ids'])
+    if not advices:
+        flash('Sorry, no favorited advices found. To favorite an advice, check out the methods below.', 'info')
 
     return render_template('favoritos.html', advice=advices)
 
@@ -75,13 +78,12 @@ def search_advice():
                 search = response.json()
                 total_results = search.get('total_results')
                 if total_results is None:
-                    print('Not found')
                     flash(f'Not found any advice with \"{inputSearch}\", please try another.', 'error')
+                    return redirect('/search' or request.referrer)
             except ValueError:
                 flash('Invalid API response format.', 'error')
         else:
             flash(f'API request failed with status code: {response.status_code}.', 'error')
             search = None
-
 
     return render_template('pesquisar.html', response_search=search)
