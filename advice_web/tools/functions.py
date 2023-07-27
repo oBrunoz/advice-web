@@ -12,8 +12,7 @@ def getNewAdvice(value:int=1):
     response = requests.get(f'{responseAPI_ID}{random_value}')
 
     if response.ok:
-        advice = response.json()['slip']['advice']
-        return {'advice': advice}
+        return response.json()
     else:
         return {'advice': 'Error: Unable to retrieve advice.'}
 

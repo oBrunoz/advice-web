@@ -6,13 +6,11 @@ from random import randint
 import requests
 import ssl
 
-advice = getNewAdvice()
-
 @app.route('/get_new_advice', methods=['POST'])
 def new_advice():
-    adviceValue = getNewAdvice()
+    advice = getNewAdvice()
 
-    return adviceValue
+    return jsonify(advice=advice['slip'])
 
 @app.route('/checkFav/<int:id_advice>', methods=['POST'])
 def favoriteAdvice(id_advice):
@@ -45,15 +43,7 @@ def favoriteAdvice(id_advice):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    for _ in range(1):
-        random_value = randint(1, 224)
-
-    response = requests.get(f'{responseAPI_ID}{random_value}')
-    if response.ok:
-        try:
-            advice = response.json()
-        except ValueError:
-            flash('Invalid API response format.', 'error')
+    advice = getNewAdvice()
 
     return render_template('index.html', advice=advice)
 
