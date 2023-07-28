@@ -10,7 +10,8 @@
     text-decoration: none;
 }
 
-html, body {
+html,
+body {
     padding: 0;
     margin: 0;
     height: 100%;
@@ -179,7 +180,7 @@ header {
     border-bottom: 1px solid black;
 }
 
-.main__advice > p {
+.main__advice>p {
     font-family: 'Poppins';
     font-weight: bold;
     font-size: 20px;
@@ -189,7 +190,7 @@ header {
     text-shadow: 28px 28px 72px #474646, -28px -28px 72px #ffffff;
 }
 
-.main__advice > .advice__message {
+.main__advice>.advice__message {
     height: 88%;
     border: 2px solid black;
     display: flex;
@@ -197,7 +198,7 @@ header {
     align-items: center;
 }
 
-.main__advice > .advice__message > p{
+.main__advice>.advice__message>p {
     font-family: 'Josefin Sans', 'Ubuntu';
     font-weight: 600;
     font-size: 20px;
@@ -224,7 +225,7 @@ header {
     user-select: none;
 }
 
-.main__advice .advice__btn form input + label i{
+.main__advice .advice__btn form input+label i {
     position: relative;
     top: 0;
     left: 0;
@@ -235,13 +236,13 @@ header {
     color: #666;
 }
 
-.main__advice .advice__btn form input + label i:hover{
+.main__advice .advice__btn form input+label i:hover {
     cursor: pointer;
     transform: scale(1.2);
     color: #ffea4988;
 }
 
-.main__advice .advice__btn form > input:checked + label i{
+.main__advice .advice__btn form>input:checked+label i {
     color: #ffeb49;
 }
 
@@ -263,11 +264,11 @@ header {
     transition: all 0.3s;
 }
 
-.main__advice .advice__btn form a .btn__icon i{
+.main__advice .advice__btn form a .btn__icon i {
     transition: all 0.3s;
 }
 
-.main__advice .advice__btn form a:hover .btn__icon i{
+.main__advice .advice__btn form a:hover .btn__icon i {
     transform: scale(1.2);
     color: whitesmoke;
 }
@@ -278,7 +279,7 @@ header {
     color: #666;
 }
 
-.main__advice .advice__btn form a:focus span{
+.main__advice .advice__btn form a:focus span {
     animation: spin 1.2s linear;
 }
 
@@ -309,7 +310,7 @@ section .advice__content .content {
     position: relative;
     max-width: 190px;
 }
-   
+
 .input__search {
     width: 100%;
     height: 40px;
@@ -324,18 +325,18 @@ section .advice__content .content {
     color: #0d0c22;
     transition: .3s ease;
 }
-   
+
 .input__search::placeholder {
     color: #9e9ea7;
 }
-   
-.input__search:focus > input:hover {
+
+.input__search:focus>input:hover {
     outline: none;
     border-color: #7d2ae8;
     background-color: #fff;
     box-shadow: 0 0 0 4px rgb(0, 0, 0, 0.5 / 10%);
 }
-   
+
 .icon__search {
     position: absolute;
     left: 1rem;
@@ -362,7 +363,7 @@ section .advice__content .content {
     transform: scale(0.96);
 }
 
-.btn__search:focus > button:hover {
+.btn__search:focus>button:hover {
     outline: none;
     border-color: #5e10c4;
     background-color: #6c17db;
@@ -371,14 +372,14 @@ section .advice__content .content {
 
 .btn__search:before,
 .btn__search:after {
-  position: absolute;
-  content: "";
-  width: 150%;
-  left: 50%;
-  height: 100%;
-  transform: translateX(-50%);
-  z-index: -1000;
-  background-repeat: no-repeat;
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
 }
 
 /* END SEARCH */
@@ -423,17 +424,17 @@ section .advice__content .content {
     border: 2px solid #c3c6ce;
     transition: 0.5s ease-out;
     overflow: visible;
-   }
-   
-   .card-details {
+}
+
+.card-details {
     color: black;
     height: 100%;
     gap: .5em;
     display: grid;
     place-content: center;
-   }
-   
-   .card-button {
+}
+
+.card-button {
     transform: translate(-50%, 125%);
     width: 60%;
     border-radius: 1rem;
@@ -447,14 +448,14 @@ section .advice__content .content {
     bottom: 0;
     opacity: 0;
     transition: 0.3s ease-out;
-   }
-   
-   .text-body {
+}
+
+.text-body {
     color: rgb(134, 134, 134);
-   }
-   
-   /*Text*/
-   .text-title {
+}
+
+/*Text*/
+.text-title {
     position: relative;
     display: flex;
     justify-content: center;
@@ -462,23 +463,23 @@ section .advice__content .content {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 0.5rem;
-   }
-   
-   /*Hover*/
-   .card:hover {
+}
+
+/*Hover*/
+.card:hover {
     border-color: #6c17db;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-   }
-   
-   .card:hover .card-button {
+}
+
+.card:hover .card-button {
     transform: translate(-50%, 50%);
     opacity: 1;
-   }
+}
 
-   .card .card-button:hover {
+.card .card-button:hover {
     background-color: #6c17db;
     color: #fff;
-   }
+}
 
 /* END CARD */
 
@@ -490,113 +491,114 @@ section .advice__content .content {
     cursor: pointer;
     height: 0;
     width: 0;
-  }
-  
-  .container_like {
+}
+
+.container_like {
     display: block;
     position: relative;
     cursor: pointer;
     font-size: 20px;
     user-select: none;
     transition: 100ms;
-  }
-  
-  .checkmark {
+}
+
+.checkmark {
     top: 0;
     left: 0;
     height: 2em;
     width: 2em;
     transition: 100ms;
     animation: dislike_effect 400ms ease;
-  }
-  
-  .container_like input:checked ~ .checkmark path {
+}
+
+.container_like input:checked~.checkmark path {
     fill: #FF5353;
     stroke-width: 0;
-  }
-  
-  .container_like input:checked ~ .checkmark {
+}
+
+.container_like input:checked~.checkmark {
     animation: like_effect 400ms ease;
-  }
-  
-  .container_like:hover {
+}
+
+.container_like:hover {
     transform: scale(1.1);
-  }
-  
-  @keyframes like_effect {
+}
+
+@keyframes like_effect {
     0% {
-      transform: scale(0);
+        transform: scale(0);
     }
-  
+
     50% {
-      transform: scale(1.2);
+        transform: scale(1.2);
     }
-  
+
     100% {
-      transform: scale(1);
+        transform: scale(1);
     }
-  }
-  
-  @keyframes dislike_effect {
+}
+
+@keyframes dislike_effect {
     0% {
-      transform: scale(0);
+        transform: scale(0);
     }
-  
+
     50% {
-      transform: scale(1.2);
+        transform: scale(1.2);
     }
-  
+
     100% {
-      transform: scale(1);
+        transform: scale(1);
     }
-  }
+}
 
 /* END MODAL SEARCH */
 
 /* FAVORITOS */
 
 .container__fav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin-top: 47px;
-  gap: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 47px;
+    gap: 40px;
 }
 
 .title__fav {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  background: transparent;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: transparent;
+    margin-bottom: 20px;
 }
 
-.title__fav > h1{
-  font-weight: 600;
-  text-transform: uppercase;
+.title__fav>h1 {
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .card-button_fav {
-  position: static;
-  width: fit-content;
-  height: fit-content;
-  border-radius: 3rem;
-  padding: 8px 17px;
-  left: 38%;
+    position: static;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 3rem;
+    padding: 8px 17px;
+    left: 38%;
 }
 
 .buttons__fav {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  left: 20%;
-  bottom: 0;
-  gap: 13px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 20%;
+    bottom: 0;
+    gap: 13px;
 }
 
-.buttons__fav > button > input, .buttons__fav > form > button > input {
-  display: none;
+.buttons__fav>button>input,
+.buttons__fav>form>button>input {
+    display: none;
 }
 
 /* ELSE */
@@ -638,8 +640,8 @@ section .advice__content .content {
 a.card__recomendation {
     text-decoration: none;
 }
-  
-.card__recomendation > .icon {
+
+.card__recomendation>.icon {
     margin: 0 auto;
     width: 100%;
     height: 80px;
@@ -653,14 +655,14 @@ a.card__recomendation {
     background-position: 0px;
     background-size: 200px;
 }
-  
-.card__recomendation > .icon svg {
+
+.card__recomendation>.icon svg {
     fill: white;
     width: 38px;
     height: 38px;
 }
-  
-.card__recomendation > .title {
+
+.card__recomendation>.title {
     width: 100%;
     margin: 0;
     text-align: center;
@@ -670,8 +672,8 @@ a.card__recomendation {
     text-transform: uppercase;
     letter-spacing: 4px;
 }
-  
-.card__recomendation > .text {
+
+.card__recomendation>.text {
     width: 80%;
     margin: 0 auto;
     font-size: 13px;
@@ -684,35 +686,35 @@ a.card__recomendation {
     max-height: 0;
     transition: all 0.3s ease;
 }
-  
+
 .card__recomendation:hover {
     height: 270px;
 }
-  
+
 .card__recomendation:hover .text {
     transition: all 0.3s ease;
     opacity: 1;
     max-height: 40px;
 }
-  
+
 .card__recomendation:hover .icon {
     background-position: -120px;
     transition: all 0.3s ease;
 }
-  
-.card__recomendation:hover .icon > svg > path {
+
+.card__recomendation:hover .icon>svg>path {
     fill: url('#gradientColor');
     transition: all 0.3s ease;
 }
 
 /* MODAL */
 
-.modal-header > .modal-title {
+.modal-header>.modal-title {
     font-weight: 600;
     text-transform: capitalize;
 }
 
-.modal-body > p{
+.modal-body>p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -724,6 +726,80 @@ a.card__recomendation {
 /* END FAVORITOS */
 
 
+/* LOADER */
+
+.spinner__load {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #242f3f;
+    opacity: 0.7;
+}
+
+.spinner {
+    border: 0 solid transparent;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.loader {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+}
+
+.loader::before,
+.loader::after {
+    content: '';
+    border: 3px solid whitesmoke;
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    opacity: 1;
+}
+
+.l1::before,
+.l1::after {
+    animation: clockwiseZ 2.5s infinite;
+}
+
+.l2::after,
+.l2::before {
+    animation: anticlockwiseZ 2.5s infinite;
+}
+
+/* END LOADER */
+
+@keyframes clockwiseZ {
+
+    0%,
+    100% {
+        transform: rotateY(0);
+    }
+
+    50% {
+        transform: rotateY(180deg) skew(-10deg, -5deg);
+    }
+}
+
+@keyframes anticlockwiseZ {
+
+    0%,
+    100% {
+        transform: rotateX(0);
+    }
+
+    50% {
+        transform: rotateX(-180deg) skew(10deg, 5deg);
+    }
+}
 
 @keyframes spin {
     from {

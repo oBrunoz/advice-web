@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Just some advices{% block title %} - Advice{% endblock %}</title>
+    <title>Just some advices{% block title %} - Advice{% endblock title %}</title>
 </head>
 <body>
+    <div class="spinner__load">
+        <div class="spinner">
+            <div class="loader l1"></div>
+            <div class="loader l2"></div>
+        </div>
+    </div>
     <nav>
         {% include 'navbar.html' %}
     </nav>
@@ -23,9 +29,9 @@
         <div class="main__advice">
             <p id="advice__response">{{advice['slip']['advice']}}</p>
             <div class="advice__btn">
-                <form method="POST" action="{{ url_for('favoriteAdvice', id_advice=advice['slip']['id']) }}">
+                <form method="POST" id="favoriteForm" action="{{ url_for('favoriteAdvice', id_advice=advice['slip']['id']) }}">
                     <input type="checkbox" class="btn__fav" name="checkFav" id="btn__fav" onchange="this.form.submit()" {% if advice['slip']['id'] in session['fav_advice_ids'] %}checked{% endif %} /><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label>
-                    <a href="#" onclick="refreshDiv()" name="refresh" class="refresh__btn"><span class="btn__icon"><i class="fa fa-refresh" aria-hidden="true"></i></span></a>
+                    <a onclick="refreshDiv()" name="refresh" class="refresh__btn"><span class="btn__icon"><i class="fa fa-refresh" aria-hidden="true"></i></span></a>
                 </form>
             </div>
         </div>
@@ -39,14 +45,16 @@
         {% block fav %}
         {% endblock %}
     </div>
-
+    
     <div class="container">
         {% block search %}
         {% endblock %}
     </div>
+    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
