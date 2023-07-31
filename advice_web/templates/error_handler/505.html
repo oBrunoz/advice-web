@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block title %}{{ super() }} - 404{% endblock %}
+
+{% block body %}
+{% endblock body %}
+
+{% block errorHandle %}
+<link rel="stylesheet" href="{{ url_for('static', filename='error_page.css') }}">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="col-lg-12 text-404">
+                <b>505</b>
+            </div>
+            <div class="col-lg-12 text">
+                <b>{{error}}</b>
+            </div>
+            <div class="col-lg-12 text-btn">
+                <a href="{{ url_for('index') }}"><button name="login" class="btn btn-outline-primary">BACK TO HOME</button></a>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+{% endblock errorHandle %}

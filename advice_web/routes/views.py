@@ -1,4 +1,5 @@
 from flask import jsonify, request, render_template, flash, redirect, session
+from jinja2 import Environment, Template, exceptions
 from advice_web import app
 from advice_web.modules.config import responseAPI_ID, responseAPI_SEARCH
 from advice_web.tools.functions import getNewAdvice, getAdviceList, getAllAdvices
@@ -43,7 +44,11 @@ def favoriteAdvice(id_advice):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    advice = getNewAdvice()
+    try:
+        advice = getNewAdvice()
+    except Exception as e:
+        flash('An error ocurred, please try again or contat the administrator.', 'error')
+        print(f'Exception: {e}')
 
     return render_template('index.html', advice=advice)
 
@@ -86,3 +91,11 @@ def search_advice():
             search = None
 
     return render_template('pesquisar.html', response_search=search)
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('error_handler/404.html', error=error), 404
+
+@app.errorhandler(500)
+def server_error(error):
+    return render_template('505.html', error=error), 500

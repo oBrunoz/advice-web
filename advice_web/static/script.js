@@ -37,6 +37,8 @@ function refreshDiv() {
     });
 }
 
+var loader = document.querySelector(".spinner__load");
+
 $(document).ready(function () {
     // Adiciona o evento de clique ao ícone de fechar
     $(".error__close, .success__close, .info__close").click(function () {
@@ -45,10 +47,10 @@ $(document).ready(function () {
     });
 });
 
-$(function() {
-    $(window).on("load", function() {
-        appear('"spinner__load"')
-        $(".spinner__load").fadeOut("slow");
-        hide("spinner__load")
-    });
+$(window).on("beforeunload", function() {
+    $(".spinner__load").fadeIn("slow");
+});
+
+$(window).on("load", function() {
+    $(".spinner__load").fadeOut("slow");
 });
