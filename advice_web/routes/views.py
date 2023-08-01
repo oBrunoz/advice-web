@@ -18,27 +18,29 @@ def favoriteAdvice(id_advice):
     if request.method == 'POST':
         checkedFav = request.form.get('checkFav')
 
-    try:
-        if checkedFav:
-                # Adiciona o ID do "advice" ao array na sessão
-                if 'fav_advice_ids' not in session:
-                    session['fav_advice_ids'] = [id_advice]
-                else:
-                    session['fav_advice_ids'].append(id_advice)
+        print(id_advice)
+
+        try:
+            if checkedFav:
+                    # Adiciona o ID do "advice" ao array na sessão
+                    if 'fav_advice_ids' not in session:
+                        session['fav_advice_ids'] = [id_advice]
+                    else:
+                        session['fav_advice_ids'].append(id_advice)
+                        print(session['fav_advice_ids'])
+                    flash('Advice successfully added to favorite list', 'success')
+            else:
+                if 'fav_advice_ids' in session and id_advice in session['fav_advice_ids']:
+                    session['fav_advice_ids'].remove(id_advice)
                     print(session['fav_advice_ids'])
-                flash('Advice successfully added to favorite list', 'success')
-        else:
-            if 'fav_advice_ids' in session and id_advice in session['fav_advice_ids']:
-                session['fav_advice_ids'].remove(id_advice)
-                print(session['fav_advice_ids'])
-                flash('Advice removed from favorite list', 'success')
-                
-    except KeyError as e:
-        flash('An error occurred while accessing session data.', 'error')
-        print(f"KeyError: {e}")
-    except Exception as e:
-        flash('An error ocurred, please try again.', 'error')
-        print(f'Exception: {e}')
+                    flash('Advice removed from favorite list', 'success')
+                    
+        except KeyError as e:
+            flash('An error occurred while accessing session data.', 'error')
+            print(f"KeyError: {e}")
+        except Exception as e:
+            flash('An error ocurred, please try again.', 'error')
+            print(f'Exception: {e}')
     
     return redirect(request.referrer or '/')
 

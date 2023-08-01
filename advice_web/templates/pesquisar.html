@@ -27,7 +27,14 @@
                             <p class="text-body">{{ find['advice'] }}</p>
                         </div>
                     </div>
-                    <button type="button" class="card-button" data-bs-toggle="modal" data-bs-target="#modal-{{find['id']}}">More info</button>
+                    <div class="buttons__fav">
+                        <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{find['id']}}"><input type="checkbox" class=""><label for="btn__fav"><i class="fa fa-heart-o" aria-hidden="true"></i></label></button>
+                        <form action="{{ url_for('favoriteAdvice', id_advice=find['id']) }}" method="post">
+                            <button type="submit" class="card-button card-button_fav" data-bs-toggle="modal" name="checkFav"><input data-bs-toggle="modal" type="checkbox" name="checkFav" {% if find['id'] in session['fav_advice_ids'] %} {% else %} {% endif %}><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label></button>
+                        </form>
+                        <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{find['id']}}"><input type="checkbox" class=""><i class="fa fa-info" aria-hidden="true"></i></button>
+                        <!-- PROBLEMA ESTÀ NO BOTAO  -->
+                    </div>
                 </div>
                 <!-- Modal -->
                 <div class="modal fade" tabindex="-1" id="modal-{{ find['id'] }}">
@@ -69,7 +76,13 @@
                         <p class="text-body">{{ find['slip']['advice'] }}</p>
                     </div>
                 </div>
-                <button type="button" class="card-button" data-bs-toggle="modal" data-bs-target="#modal_all-{{find['slip']['id']}}">More info</button>
+                <div class="buttons__fav">
+                    <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{find['slip']['id']}}"><input type="checkbox" class=""><label for="btn__fav"><i class="fa fa-heart-o" aria-hidden="true"></i></label></button>
+                    <form action="{{ url_for('favoriteAdvice', id_advice=find['slip']['id']) }}" method="post">
+                        <button type="submit" class="card-button card-button_fav" data-bs-toggle="modal"><input type="checkbox" class="" onchange="this.form.submit()" {% if find['slip']['id'] in session['fav_advice_ids'] %}checked{% endif %}><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label></button>
+                    </form>
+                    <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal_all-{{find['slip']['id']}}"><input type="checkbox" class=""><i class="fa fa-info" aria-hidden="true"></i></button>
+                </div>
             </div>
             <!-- Modal -->
             <div class="modal fade" tabindex="-1" id="modal_all-{{ find['slip']['id'] }}">

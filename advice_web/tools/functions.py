@@ -1,4 +1,5 @@
-from flask import jsonify, request, session
+# from flask import jsonify, request, session
+from translators import translate_text
 from advice_web.modules.config import responseAPI_ID
 import requests
 from random import randint
