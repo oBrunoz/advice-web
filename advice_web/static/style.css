@@ -382,6 +382,26 @@ section .advice__content .content {
     background-repeat: no-repeat;
 }
 
+.buttons__fav > form > button > input + label i {
+    color: whitesmoke;
+}
+
+.buttons__fav > form > button > input:checked + label i {
+    color: #ffeb49;
+}
+
+.buttons__fav > button:hover > input + label i {
+    cursor: pointer;
+    transition: all 0.7s;
+    color: red;
+}
+
+.buttons__fav > form > button:hover > input + label i {
+    transition: all 0.5s;
+    cursor: pointer;
+    color: #ffea49be;
+}
+
 /* END SEARCH */
 
 .values__advice {

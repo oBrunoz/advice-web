@@ -18,8 +18,10 @@ def favoriteAdvice(id_advice):
     if request.method == 'POST':
         checkedFav = request.form.get('checkFav')
 
-        print(id_advice)
+        if id_advice is None:
+            flash('Value none or invalid advice value.', 'error')
 
+        print(id_advice)
         try:
             if checkedFav:
                     # Adiciona o ID do "advice" ao array na sessão
@@ -34,6 +36,9 @@ def favoriteAdvice(id_advice):
                     session['fav_advice_ids'].remove(id_advice)
                     print(session['fav_advice_ids'])
                     flash('Advice removed from favorite list', 'success')
+                if 'fav_advice_ids' not in session:
+                    flash('Advice is not in your favorites list.', 'error')
+                flash('Sorry, we encountered an error while trying to add it to your favorites. Please try again later or contact an administrator for assistance.', 'info')
                     
         except KeyError as e:
             flash('An error occurred while accessing session data.', 'error')

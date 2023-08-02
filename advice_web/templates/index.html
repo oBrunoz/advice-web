@@ -32,8 +32,7 @@
         <div class="main__advice">
             <p id="advice__response">{{advice['slip']['advice']}}</p>
             <div class="advice__btn">
-                <form method="POST" id="favoriteForm"
-                    action="{{ url_for('favoriteAdvice', id_advice=advice['slip']['id']) }}">
+                <form method="POST" id="favoriteForm" action="{{ url_for('favoriteAdvice', id_advice=advice['slip']['id']) }}">
                     <input type="checkbox" class="btn__fav" name="checkFav" id="btn__fav" onchange="this.form.submit()"
                         {% if advice['slip']['id'] in session['fav_advice_ids'] %}checked{% endif %} /><label
                         for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label>
