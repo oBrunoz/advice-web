@@ -1,4 +1,4 @@
-from flask import jsonify, request, render_template, flash, redirect, session
+from flask import jsonify, request, render_template, flash, redirect, session, url_for
 from jinja2 import Environment, Template, exceptions
 from advice_web import app
 from advice_web.modules.config import responseAPI_ID, responseAPI_SEARCH
@@ -18,9 +18,6 @@ def favoriteAdvice(id_advice):
     if request.method == 'POST':
         checkedFav = request.form.get('checkFav')
 
-        if id_advice is None:
-            flash('Value none or invalid advice value.', 'error')
-
         print(id_advice)
         try:
             if checkedFav:
@@ -30,15 +27,14 @@ def favoriteAdvice(id_advice):
                     else:
                         session['fav_advice_ids'].append(id_advice)
                         print(session['fav_advice_ids'])
-                    flash('Advice successfully added to favorite list', 'success')
+                    flash(f'Advice {id_advice} successfully added to favorite list', 'success')
             else:
                 if 'fav_advice_ids' in session and id_advice in session['fav_advice_ids']:
                     session['fav_advice_ids'].remove(id_advice)
                     print(session['fav_advice_ids'])
-                    flash('Advice removed from favorite list', 'success')
-                if 'fav_advice_ids' not in session:
-                    flash('Advice is not in your favorites list.', 'error')
-                flash('Sorry, we encountered an error while trying to add it to your favorites. Please try again later or contact an administrator for assistance.', 'info')
+                    flash(f'Advice {id_advice} removed from favorite list', 'warning')
+                else:
+                    flash('Sorry, we encountered an error while trying to add it to your favorites. Please try again later or contact an administrator for assistance.', 'info')
                     
         except KeyError as e:
             flash('An error occurred while accessing session data.', 'error')
@@ -77,10 +73,11 @@ def fav_advice():
 def search_advice():
     inputSearch = request.args.get('tag', type=str)
 
-    if inputSearch == None:
+    if inputSearch is None or inputSearch.strip() == '':
         all_results = getAllAdvices()
-
+        flash('Value none or invalid advice value. Try again!', 'error')
         return render_template('pesquisar.html', getAll=all_results)
+    
     else:
         response = requests.get(f'{responseAPI_SEARCH}{inputSearch}')
 

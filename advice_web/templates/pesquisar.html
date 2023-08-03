@@ -14,7 +14,7 @@
 </form>
 
 {% if response_search %}
-    {% if response_search['total_results'] != "0" %}
+    {% if response_search['total_results'] is not none%}
         <div class="values__advice">
             <div class="total_results">
                 <p>Results found: {{response_search['total_results']}}</p>
@@ -29,8 +29,8 @@
                     </div>
                     <div class="buttons__fav">
                         <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{find['id']}}"><input type="checkbox" class=""><label for="btn__fav"><i class="fa fa-heart" aria-hidden="true"></i></label></button>
-                        <form action="{{ url_for('favoriteAdvice', id_advice=find['id']) }}" method="post">
-                            <button type="submit" class="card-button card-button_fav"><input onchange="this.form.submit()" type="checkbox" name="checkFav" {% if find['id'] in session['fav_advice_ids'] %} checked {% else %} {% endif %}><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label></button>
+                        <form action="{{ url_for('favoriteAdvice', id_advice=find['id']) }}" class="card-button card-button_fav" method="post">
+                            <input class="input_star" type="checkbox" onchange="this.form.submit()" name="checkFav" id="btn__fav{{ find['id'] }}" {% if find['id'] in session['fav_advice_ids'] %} checked {% else %}  {% endif %}><label for="btn__fav{{ find['id'] }}"><i class="fa fa-star" aria-hidden="true"></i></label>
                         </form>
                         <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{find['id']}}"><input type="checkbox" class=""><i class="fa fa-info" aria-hidden="true"></i></button>
                     </div>
@@ -64,6 +64,8 @@
                   </div>
                 {% endfor %}
             </div>
+            {% elif response_search['total_results'] < 0 %}
+            <h1>erro mané</h1>
     {% endif %}
     {% else %}
     <div class="values__advice">
@@ -77,8 +79,8 @@
                 </div>
                 <div class="buttons__fav">
                     <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{find['slip']['id']}}"><input type="checkbox" class=""><label for="btn__fav"><i class="fa fa-heart" aria-hidden="true"></i></label></button>
-                    <form action="{{ url_for('favoriteAdvice', id_advice=find['slip']['id']) }}" method="post">
-                        <button type="submit" class="card-button card-button_fav" data-bs-toggle="modal"><input type="checkbox" class="" onchange="this.form.submit()" {% if find['slip']['id'] in session['fav_advice_ids'] %}checked{% endif %}><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label></button>
+                    <form action="{{ url_for('favoriteAdvice', id_advice=find['slip']['id']) }}" class="card-button card-button_fav" method="post">
+                        <input class="input_star" type="checkbox" onchange="this.form.submit()" name="checkFav" id="btn__fav{{ find['slip']['id'] }}" {% if find['slip']['id'] in session['fav_advice_ids'] %} checked {% else %}  {% endif %}><label for="btn__fav{{ find['slip']['id'] }}"><i class="fa fa-star" aria-hidden="true"></i></label>
                     </form>
                     <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal_all-{{find['slip']['id']}}"><input type="checkbox" class=""><i class="fa fa-info" aria-hidden="true"></i></button>
                 </div>

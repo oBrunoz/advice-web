@@ -122,6 +122,24 @@ header {
     fill: #0C2A75;
 }
 
+.warning {
+    background: #FEF7D1;
+}
+
+.warning__icon path {
+    fill: #F7C752;
+}
+
+.warning__title {
+    font-weight: 500;
+    font-size: 14px;
+    color: #755118;
+}
+
+.warning__close path {
+    fill: #755118;
+}
+
 /* END MSG */
 
 .logo {
@@ -382,23 +400,27 @@ section .advice__content .content {
     background-repeat: no-repeat;
 }
 
-.buttons__fav > form > button > input + label i {
+.buttons__fav > form, .buttons__fav > button {
+    cursor: pointer;
+}
+
+.buttons__fav > form > input + label {
     color: whitesmoke;
 }
 
-.buttons__fav > form > button > input:checked + label i {
+.buttons__fav > form > input:checked + label {
     color: #ffeb49;
 }
 
-.buttons__fav > button:hover > input + label i {
+.buttons__fav > button:hover > input + label {
     cursor: pointer;
     transition: all 0.7s;
     color: red;
 }
 
-.buttons__fav > form > button:hover > input + label i {
-    transition: all 0.5s;
+.buttons__fav > form:hover > input + label {
     cursor: pointer;
+    transition: all 0.5s;
     color: #ffea49be;
 }
 
@@ -605,6 +627,11 @@ section .advice__content .content {
     border-radius: 3rem;
     padding: 8px 17px;
     left: 38%;
+    cursor: pointer;
+}
+
+.input_star {
+    display: none;
 }
 
 .buttons__fav {
