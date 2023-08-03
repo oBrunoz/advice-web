@@ -64,9 +64,10 @@
                   </div>
                 {% endfor %}
             </div>
-            {% elif response_search['total_results'] < 0 %}
-            <h1>erro mané</h1>
     {% endif %}
+    {% elif response_search == None %}
+        <h1>Erro mané</h1>
+        <!-- PERSONALIZAR TELA DE NONE -->
     {% else %}
     <div class="values__advice">
         {% for find in getAll %}

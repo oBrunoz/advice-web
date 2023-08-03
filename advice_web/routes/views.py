@@ -73,9 +73,8 @@ def fav_advice():
 def search_advice():
     inputSearch = request.args.get('tag', type=str)
 
-    if inputSearch is None or inputSearch.strip() == '':
+    if inputSearch is None:
         all_results = getAllAdvices()
-        flash('Value none or invalid advice value. Try again!', 'error')
         return render_template('pesquisar.html', getAll=all_results)
     
     else:
@@ -91,7 +90,10 @@ def search_advice():
             except ValueError:
                 flash('Invalid API response format.', 'error')
         else:
-            flash(f'API request failed with status code: {response.status_code}.', 'error')
+            if response.status_code == 404:
+                flash('Value none or invalid advice value. Try again!', 'error')
+            else:
+                flash(f'API request failed with status code: {response.status_code}.', 'error')
             search = None
 
     return render_template('pesquisar.html', response_search=search)

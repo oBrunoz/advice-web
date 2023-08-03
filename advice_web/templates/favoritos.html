@@ -20,8 +20,8 @@
                 </div>
                 <div class="buttons__fav">
                     <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{fav['id']}}"><input type="checkbox" class=""><label for="btn__fav"><i class="fa fa-heart" aria-hidden="true"></i></label></button>
-                    <form action="{{ url_for('favoriteAdvice', id_advice=fav['slip']['id']) }}" method="post">
-                        <button type="submit" class="card-button card-button_fav" data-bs-toggle="modal"><input type="checkbox" class="" onchange="this.form.submit()" {% if fav['slip']['id'] in session['fav_advice_ids'] %}checked{% endif %}><label for="btn__fav"><i class="fa fa-star" aria-hidden="true"></i></label></button>
+                    <form action="{{ url_for('favoriteAdvice', id_advice=fav['slip']['id']) }}" class="card-button card-button_fav" method="post">
+                        <input class="input_star" type="checkbox" onchange="this.form.submit()" name="checkFav" id="btn__fav{{ fav['slip']['id'] }}" {% if fav['slip']['id'] in session['fav_advice_ids'] %} checked {% else %}  {% endif %}><label for="btn__fav{{ fav['slip']['id'] }}"><i class="fa fa-star" aria-hidden="true"></i></label>
                     </form>
                     <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{fav['slip']['id']}}"><input type="checkbox" class=""><i class="fa fa-info" aria-hidden="true"></i></button>
                 </div>
