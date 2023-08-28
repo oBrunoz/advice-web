@@ -1,5 +1,5 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "advice_web/routes/views.py" }
+      { "source": "/(.*)", "destination": "advice_web/routes/views" }
     ]
   }
