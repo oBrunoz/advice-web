@@ -1,5 +1,5 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "advice_web/routes/views" }
+      { "source": "/(.*)", "destination": "main" }
     ]
   }
