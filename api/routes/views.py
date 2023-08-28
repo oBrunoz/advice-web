@@ -104,4 +104,4 @@ def server_error(error):
     return render_template('505.html', error=error), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=8080)
+    app.run(debug=True)
