@@ -207,7 +207,6 @@ header {
   .paragraph {
     font-size: 17px;
     background-image: linear-gradient(to right, hsl(150, 100%, 66%),#C031B5);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     font-weight: 500;

@@ -1,7 +1,7 @@
-from flask import jsonify, request, render_template, flash, redirect, session
-from advice_web import app
-from advice_web.modules.config import responseAPI_ID, responseAPI_SEARCH
-from advice_web.tools.functions import getNewAdvice, getAdviceList, getAllAdvices
+from flask import jsonify, request, render_template, flash, redirect, session, url_for
+from api import app
+from api.modules.config import responseAPI_ID, responseAPI_SEARCH
+from api.tools.functions import getNewAdvice, getAdviceList, getAllAdvices
 import requests
 
 @app.route('/get_new_advice', methods=['POST'])
