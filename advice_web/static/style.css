@@ -15,6 +15,7 @@ body {
     padding: 0;
     margin: 0;
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -34,7 +35,6 @@ header {
     padding: 25px 7%;
     background: transparent;
     text-transform: uppercase;
-    margin-bottom: 20px;
 }
 
 /* MSG */
@@ -182,68 +182,70 @@ header {
 }
 
 .main {
-    border-top: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
     position: relative;
-    height: 100%;
+    height: 87vh;
     top: 0;
+    margin-top: 60px;
 }
 
-.main__advice {
+.advice-container {
+    font-family: "Manrope", sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    max-height: 50%;
-    height: 30%;
-    background-color: #99A98F;
-    border-bottom: 1px solid black;
-}
-
-.main__advice>p {
-    font-family: 'Poppins';
-    font-weight: bold;
+    text-align: center;
+    width: 530px;
+    height: auto;
+    background-color: #320173;
+    border-radius: 10px;
+    padding: 30px 16px 0 16px;
+  }
+  
+  .paragraph {
+    font-size: 17px;
+    background-image: linear-gradient(to right, hsl(150, 100%, 66%),#C031B5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    /*Reason: there are some contrast issues*/
+  }
+  
+  .advice-details {
+    color: hsl(193, 38%, 86%);
     font-size: 20px;
-    padding: 20px;
-    margin-bottom: 5px;
-    color: white;
-    text-shadow: 28px 28px 72px #474646, -28px -28px 72px #ffffff;
-}
+    font-weight: 500;
+    margin: 30px 0;
+    line-height: 25px;
+    letter-spacing: 1px;
+  }
+  
+  .pattern-divider path {
+    fill: hsl(217, 19%, 38%);
+  }
 
-.main__advice>.advice__message {
-    height: 88%;
-    border: 2px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.main__advice>.advice__message>p {
-    font-family: 'Josefin Sans', 'Ubuntu';
-    font-weight: 600;
-    font-size: 20px;
-}
-
-.main__advice .advice__btn {
-    position: relative;
-    left: 30px;
+.advice__btn {
     margin: 12px;
-    justify-content: space-between;
-    display: flex;
 }
 
-.main__advice .advice__btn form input {
+.advice__btn form input {
     display: none;
 }
 
-.main__advice .advice__btn form {
+.advice__btn form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: relative;
     cursor: pointer;
-    gap: 10px;
+    gap: 25px;
     user-select: none;
 }
 
-.main__advice .advice__btn form input+label i {
+.advice__btn form input+label i {
     position: relative;
     top: 0;
     left: 0;
@@ -254,17 +256,17 @@ header {
     color: #666;
 }
 
-.main__advice .advice__btn form input+label i:hover {
+.advice__btn form input+label i:hover {
     cursor: pointer;
     transform: scale(1.2);
     color: #ffea4988;
 }
 
-.main__advice .advice__btn form>input:checked+label i {
+.advice__btn form>input:checked+label i {
     color: #ffeb49;
 }
 
-.main__advice .advice__btn form a {
+.advice__btn form a {
     color: white;
     background-color: transparent;
     font-weight: 500;
@@ -282,22 +284,22 @@ header {
     transition: all 0.3s;
 }
 
-.main__advice .advice__btn form a .btn__icon i {
+.advice__btn form a .btn__icon i {
     transition: all 0.3s;
 }
 
-.main__advice .advice__btn form a:hover .btn__icon i {
+.advice__btn form a:hover .btn__icon i {
     transform: scale(1.2);
     color: whitesmoke;
 }
 
-.main__advice .advice__btn form a .btn__icon i {
+.advice__btn form a .btn__icon i {
     width: 1.3rem;
     height: 1.3rem;
     color: #666;
 }
 
-.main__advice .advice__btn form a:focus span {
+.advice__btn form a:focus span {
     animation: spin 1.2s linear;
 }
 
@@ -422,6 +424,25 @@ section .advice__content .content {
     cursor: pointer;
     transition: all 0.5s;
     color: #ffea49be;
+}
+
+.icon__not_found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.main__icon_not_found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.msg_not_found {
+    display: contents;
 }
 
 /* END SEARCH */

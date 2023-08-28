@@ -1,11 +1,8 @@
-from flask import jsonify, request, render_template, flash, redirect, session, url_for
-from jinja2 import Environment, Template, exceptions
+from flask import jsonify, request, render_template, flash, redirect, session
 from advice_web import app
 from advice_web.modules.config import responseAPI_ID, responseAPI_SEARCH
 from advice_web.tools.functions import getNewAdvice, getAdviceList, getAllAdvices
-from random import randint
 import requests
-import ssl
 
 @app.route('/get_new_advice', methods=['POST'])
 def new_advice():
@@ -79,7 +76,7 @@ def search_advice():
     
     else:
         response = requests.get(f'{responseAPI_SEARCH}{inputSearch}')
-
+    
         if response.ok:
             try:
                 search = response.json()
@@ -91,7 +88,7 @@ def search_advice():
                 flash('Invalid API response format.', 'error')
         else:
             if response.status_code == 404:
-                flash('Value none or invalid advice value. Try again!', 'error')
+                print('bad request: 404')    
             else:
                 flash(f'API request failed with status code: {response.status_code}.', 'error')
             search = None

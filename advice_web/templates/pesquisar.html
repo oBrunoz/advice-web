@@ -28,7 +28,9 @@
                         </div>
                     </div>
                     <div class="buttons__fav">
-                        <button type="button" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-{{find['id']}}"><input type="checkbox" class=""><label for="btn__fav"><i class="fa fa-heart" aria-hidden="true"></i></label></button>
+                        <form action="" method="get">
+                            <button type="submit" class="card-button card-button_fav" data-bs-toggle="modal" data-bs-target="#modal-share-{{find['id']}}"><input type="checkbox" class=""><label for="btn__fav"><i class="fa fa-share-alt" aria-hidden="true"></i></label></button>
+                        </form>
                         <form action="{{ url_for('favoriteAdvice', id_advice=find['id']) }}" class="card-button card-button_fav" method="post">
                             <input class="input_star" type="checkbox" onchange="this.form.submit()" name="checkFav" id="btn__fav{{ find['id'] }}" {% if find['id'] in session['fav_advice_ids'] %} checked {% else %}  {% endif %}><label for="btn__fav{{ find['id'] }}"><i class="fa fa-star" aria-hidden="true"></i></label>
                         </form>
@@ -66,9 +68,15 @@
             </div>
     {% endif %}
     {% elif response_search == None %}
-        <div class="icon__not_found" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+    <div class="main__icon_not_found">
+        <div class="icon__not_found">
             <img src="{{ url_for('static', filename='images/searching.svg') }}" alt="" style="width: 40%; height: 40%;">
+            <div class="msg_not_found">
+                <h2>Oops! Nothing Found!</h2>
+                <p>It seems your search is empty! We couldn't find any results for what you were looking for. Please make sure to enter relevant keywords and try again.</p>
+            </div>
         </div>
+    </div>
         <!-- PERSONALIZAR TELA DE NONE -->
     {% else %}
     <div class="values__advice">

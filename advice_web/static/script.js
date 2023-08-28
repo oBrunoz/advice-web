@@ -6,7 +6,8 @@ function refreshDiv() {
             try {
                 // Atualize o conteúdo da div com o novo conteúdo do servidor
                 console.log(data.advice)
-                $('#advice__response').html(data.advice['advice']);
+                $('.advice-details').html(data.advice['advice']);
+                $('.id__advice').html(data.advice['id']);
 
                 // Atualize o valor do input com o novo advice
                 $('#btn__fav').val(data.advice);
