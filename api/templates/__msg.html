@@ -1,7 +1,7 @@
 {% block body %}
     
 {% if get_flashed_messages() %}
-<div class="container mt-2 mb-4" style="display: flex; justify-content: center; margin-bottom: 2rem !important; flex-direction: column; align-items: center; gap: 15px;" id="message-all">
+<div class="container mt-2" style="display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 15px;" id="message-all">
     {% with msg = get_flashed_messages(category_filter=["success"]) %}
     {% if msg %}
         {% for msg in msg %}

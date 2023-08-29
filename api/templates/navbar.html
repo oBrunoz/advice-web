@@ -1,11 +1,16 @@
 <header>
   <a href="{{ url_for('index') }}" class="logo">Advice</a>
 
-  <ul class="nav__list">
-    <li><a href="{{ url_for('index') }}">Home</a></li>
-    <li><a href="{{ url_for('search_advice') }}">Search</a></li>
-    <li><a href="{{ url_for('fav_advice') }}">Favorite</a></li>
-  </ul>
+  <nav id="nav">
+    <ul class="nav__list">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('search_advice') }}">Search</a></li>
+      <li><a href="{{ url_for('fav_advice') }}">Favorite</a></li>
+    </ul>
+</nav>
 
-  <div class="menu"><i class="fa fa-bars"></i></div>
+  <div class="menu">
+    <button id="check" onclick="menuShow()"><i class="fa fa-bars"></i></button>
+  </div>
+  
 </header>

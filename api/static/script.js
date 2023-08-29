@@ -38,6 +38,11 @@ function refreshDiv() {
     });
 }
 
+function menuShow() {
+    let menuMobile = document.querySelector("#nav");
+    menuMobile.classList.toggle('active');
+}
+
 var loader = document.querySelector(".spinner__load");
 
 $(document).ready(function () {
