@@ -39,9 +39,9 @@ Uma aplicação web desenvolvida com paixão por um entusiasta de programação.
 **Instale as dependências e utilize a venv**
 
 ```bash
-  pip install -r requirements.txt
-
   source venv/Scripts/activate
+
+  pip install -r requirements.txt
 ```
 
 **Entre no diretório do projeto**
